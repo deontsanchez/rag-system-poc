@@ -64,33 +64,58 @@ A complete proof-of-concept implementation of a Retrieval-Augmented Generation (
 git clone <repository-url>
 cd rag-system-poc
 
-# Create environment file
-cp backend/.env.template backend/.env
+# Copy example configurations
+cp .env.example backend/.env
+cp .env.example frontend/.env
 ```
 
-### 2. Configure Environment
+### 2. Configure Environment Variables
 
-Edit `backend/.env` with your settings:
+**Simple Setup:**
+Just one `.env` file at the root level - that's it!
 
 ```bash
-OPENAI_API_KEY=sk-your-openai-api-key-here
-CHROMA_PERSIST_DIRECTORY=./chroma_db
-UPLOAD_DIRECTORY=../data/uploads
-CHUNK_SIZE=1000
-CHUNK_OVERLAP=200
-MAX_RETRIEVAL_CHUNKS=5
+# Copy the example and add your API key
+cp .env.example .env
+
+# Edit .env and add your OpenAI API key
+OPENAI_API_KEY=your-api-key-here
 ```
 
-### 3. Start Backend
+**Check Your Configuration:**
+
+```bash
+# Verify everything is set up correctly
+python check-env.py
+```
+
+**That's All!**
+The single `.env` file contains all settings for both frontend and backend. No need to manage multiple environment files.
+
+### 3. Quick Start (Recommended)
+
+```bash
+# Run the automated setup and dev server launcher
+./setup.sh
+./dev.sh
+```
+
+### 3. Manual Setup
+
+#### Start Backend
 
 ```bash
 cd backend
+
+# Create and activate virtual environment
+python3 -m venv venv
+source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
 
 # Start the server
-python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 The backend will be available at `http://localhost:8000`

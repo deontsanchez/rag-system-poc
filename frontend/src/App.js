@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MessageSquare, Database, Settings, AlertCircle } from 'lucide-react';
+import { MessageSquare, Database, AlertCircle } from 'lucide-react';
 import ChatInterface from './components/ChatInterface';
 import DocumentManager from './components/DocumentManager';
 import { apiService } from './services/api';

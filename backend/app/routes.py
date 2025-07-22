@@ -111,3 +111,8 @@ async def get_stats():
 async def health_check():
     """Health check endpoint"""
     return JSONResponse(content={"status": "healthy", "service": "RAG System POC"})
+
+@router.get("/version")
+async def get_version():
+    """Get API version"""
+    return JSONResponse(content={"version": "1.0.0", "api": "RAG System POC"})

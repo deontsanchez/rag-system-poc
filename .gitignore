@@ -21,14 +21,21 @@ wheels/
 *.egg
 MANIFEST
 
-# Environment
-.env
+# Environment Files
 .venv
+.env
+.env.local
+.env.*.local
 env/
 venv/
 ENV/
 env.bak/
 venv.bak/
+
+# Keep environment templates and examples
+!.env.example
+!.env.development
+!.env.production
 
 # Node.js
 node_modules/
